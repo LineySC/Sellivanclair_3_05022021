@@ -80,7 +80,7 @@ img{
     }
 
     header{
-        box-shadow: 10 10 10 var(--box-trois);
+        box-shadow: 0 10 10 var(--box-trois);
 
     }
 
@@ -124,7 +124,7 @@ img{
         padding: 30px 0px 30px 0px;
     }
 
-    .fonctionnement h1{
+    .fonctionnement h2{
         padding-left: 10px;
         font-size: 1.2em;
     }
@@ -180,7 +180,7 @@ img{
         color: black;
     }
 
-    #restaurants .boite_restaurant h1{
+    #restaurants .boite_restaurant h2{
         padding: 10px 0px 0px 15px;
         font-size: 1.2em;
         line-height: 5px;
