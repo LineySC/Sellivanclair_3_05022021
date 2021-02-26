@@ -32,7 +32,7 @@ img{
     border: none;
     border-radius: 30px;
     color: #FFFFFF;
-    background: linear-gradient(var(--couleur-secondaire), var(--couleur-primaire));
+    background: linear-gradient(var(--couleur-secondaire) 0%, var(--couleur-primaire) 80%);
 }
 
 .btn_explo:hover{
@@ -80,7 +80,7 @@ img{
     }
 
     header{
-        box-shadow: 10 10 10 var(--box-trois);
+        box-shadow: 0 10 10 var(--box-trois);
 
     }
 
@@ -124,7 +124,7 @@ img{
         padding: 30px 0px 30px 0px;
     }
 
-    .fonctionnement h1{
+    .fonctionnement h2{
         padding-left: 10px;
         font-size: 1.2em;
     }
@@ -180,22 +180,36 @@ img{
         color: black;
     }
 
-    #restaurants .boite_restaurant h1{
-        padding: 10px 0px 0px 15px;
+    #restaurants .boite_restaurant h2{
+        padding: 20px 0px 0px 15px;
         font-size: 1.2em;
         line-height: 5px;
+        margin: 0;
     }
 
     #restaurants .boite_restaurant p{
         padding: 0px 0px 5px 15px;
         font-size: 1.2em;
         line-height: 5px;
+        margin-top: 0;
     }
 
-    #restaurants .boite_restaurant i{
-        position: absolute;
+    #restaurants .boite_restaurant .fa-heart{
+        position: relative;
         left: 85%;
         font-size: 1.3em;
+    }
+
+    #restaurant .boite_restaurant .fa-heart:hover{
+        display: none;
+    }
+
+
+
+    .favoris:hover{
+        background-color: red;
+        background-image: linear-gradient(var(--couleur-secondaire), var(--couleur-primaire));
+        -webkit-text-fill-color: transparent; 
     }
 
 
@@ -216,6 +230,11 @@ img{
         justify-content: space-between;
         align-items: center;
         padding: 0px 15px 0px 15px ;
+        width: 85%;
+    }
+
+    .titre_menu h1{
+        font-size: 1.5em;
     }
 
     .titre_menu i{
@@ -242,13 +261,13 @@ img{
 
     .contenu_global_menu a{
         margin: 10% 0% 20% 0%;
-
     }
 
     .menu{
         display: flex;
         flex-direction: column;
         align-items: stretch;
+        width: 93%;
     }
 
     .menu h1{
@@ -256,9 +275,14 @@ img{
         font-weight: lighter;
         font-style: normal;
         text-transform: uppercase;
-        padding-left: 3%;
         font-size: 1.2em;
         
+    }
+
+    .anim{
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
     }
 
     .border_titre_menu{
@@ -271,10 +295,10 @@ img{
 
     .contenu_menu{
         background-color: white;
-        margin-bottom: 20px;
         border-radius: 15px;
         padding: 10px;
         width: 95%;
+        transition: ease-in-out 1s;
     }
 
     .contenu_menu h2{
@@ -285,6 +309,7 @@ img{
     .contenu_menu .sous_contenu_menu{
         display: flex;
         justify-content: space-between;
+        overflow: hidden;
     }
 
     .contenu_menu .sous_contenu_menu p{
@@ -292,7 +317,87 @@ img{
         font-size: 1em;
         font-weight: lighter;
         padding-bottom: 5px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
+
+    .contenu_menu .sous_contenu_menu h3{
+        font-size: 0.9em;
+        margin: 0;
+        padding-left: 2%;
+    }
+
+
+    .contenu_menu:hover{
+        width: 75%;
+        border-radius: 15px 0px 0px 15px;
+        transition: ease-in-out 1.5s;
+    }
+
+
+    .contenu_menu:hover + .check_choix{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        animation: boxCheck 1s;
+        background-color: var(--couleur-tertiaire);
+
+    }
+
+    .anim .check_choix{
+        width: 0%;
+        height: 67px;
+        display: none;
+        border-radius: 0px 15px 15px 0px;
+
+ 
+    }
+
+
+
+    .anim .check_choix i{
+        font-size: 1.5em;
+    }
+
+    .anim_menu{
+        animation: fadein 1.5s;
+        position: relative;
+    }
+
+    @keyframes boxCheckAfter{
+        from{
+            width: 20%;
+        }
+        to{
+            width: 0%;
+        }
+        
+    }
+
+    @keyframes boxCheck{
+        from{
+            width: 0%;
+        }
+        to{
+            width: 20%;
+        }
+    }
+
+    @keyframes fadein {
+        from{
+            opacity: 0;
+            left: -100px;
+            bottom: -100px;
+        }
+        to{
+            opacity: 1;
+            left: 0;
+            bottom: 0;
+        }
+    }
+    
 
 
 /**********************************/
