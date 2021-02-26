@@ -1,3 +1,450 @@
+
+/** Global **/
+
+:root{
+    --couleur-primaire: #9356DC;
+    --couleur-secondaire: #FF79DA;
+    --couleur-tertiaire: #99E2D0;
+    --box-un: #EAEAEA;
+    --box-deux: #F6F6F6;
+    --box-trois: #353535;
+}
+
+body{
+    font-family: 'Roboto';
+    font-size: 100%;
+    margin: 0;
+    background-color: #FFFFFF;
+}
+
+img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.shadow{
+    box-shadow: 0 5px 15px grey;
+}
+
+.btn_explo{
+    text-decoration: none;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    color: #FFFFFF;
+    background: linear-gradient(var(--couleur-secondaire) 0%, var(--couleur-primaire) 80%);
+}
+
+.btn_explo:hover{
+    cursor: pointer;
+}
+
+.btn_commande{
+    padding: 15px 45px 15px 45px;
+}
+
+    /********** MOBILE **********/
+
+        /***** Acceuil *****/
+
+@media all and (max-width:768px){
+    
+    header .titre{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0px 10px 0px;
+    }
+
+    header .back{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px 0px 10px 0px;
+        z-index: 3;
+        position: fixed;
+        background-color: var(--box-un);
+    }
+
+    header .back a{
+        margin: 0% 20% 0% 5%;
+    }
+
+    header .back a i{
+        color: var(--box-trois);
+        font-size: 1.5em;
+    }
+
+    header img{
+        width: 45%;
+    }
+
+    header{
+        box-shadow: 0 10 10 var(--box-trois);
+
+    }
+
+    .gps{
+        background-color: var(--box-un);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 0px 5px 0px;
+    }
+
+    .gps i{
+        margin-right: 15px;
+    }
+
+    .explorez{
+        background-color: var(--box-deux);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 40px;
+    }
+    
+    .explorez h1{
+        padding: 20px 50px 0px 50px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 1.5em;
+
+    }
+
+    .explorez p{
+        text-align: center;
+        padding: 0px 10px 10px 0px;
+    }
+ 
+    /** Fonctionnement **/
+
+    .fonctionnement{
+        padding: 30px 0px 30px 0px;
+    }
+
+    .fonctionnement h2{
+        padding-left: 10px;
+        font-size: 1.2em;
+    }
+
+    .fonctionnement ol li{
+        background-color: var(--box-un);
+        padding: 20px 20px 20px 20px;
+        border-radius: 20px;
+        margin: 25px 15px 0px 0px;
+        font-weight: 600;
+    }
+
+    .fonctionnement ol li:hover{
+        background-color: rgba(147, 86, 220, 0.2);
+    }
+
+    .fonctionnement  ol li i{
+        padding-right: 20px;
+        color: var(--box-trois);
+    }
+    
+
+    /** Restaurant **/
+
+    #restaurants{
+        background-color: var(--box-un);
+        display: flex;
+        flex-direction: column;
+        padding: 40px 15px 0px 15px;
+    }
+
+    #restaurants .boite_restaurant{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        height: 80%;
+    }
+
+    #restaurants .boite_restaurant img{
+        border-radius: 15px 15px 0px 0px;
+        width: 100%;
+        height: 170px;
+    }
+
+    #restaurants .boite_restaurant a{
+        width: 100%;
+        text-decoration: none;
+        color: black;
+    }
+
+    #restaurants .boite_restaurant h2{
+        padding: 20px 0px 0px 15px;
+        font-size: 1.2em;
+        line-height: 5px;
+        margin: 0;
+    }
+
+    #restaurants .boite_restaurant p{
+        padding: 0px 0px 5px 15px;
+        font-size: 1.2em;
+        line-height: 5px;
+        margin-top: 0;
+    }
+
+    #restaurants .boite_restaurant .fa-heart{
+        position: relative;
+        left: 85%;
+        font-size: 1.3em;
+    }
+
+    #restaurant .boite_restaurant .fa-heart:hover{
+        display: none;
+    }
+
+
+
+    .favoris:hover{
+        background-color: red;
+        background-image: linear-gradient(var(--couleur-secondaire), var(--couleur-primaire));
+        -webkit-text-fill-color: transparent; 
+    }
+
+
+/********** Page de Menu **********/
+
+    .menu_global{
+        background-color: var(--box-un);
+
+    }
+
+    .contenu_global_menu h1{
+        font-family: 'Shrikhand' ;
+        font-weight: 300;
+    }
+
+    .titre_menu{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 15px 0px 15px ;
+        width: 85%;
+    }
+
+    .titre_menu h1{
+        font-size: 1.5em;
+    }
+
+    .titre_menu i{
+        font-size: 1.5em;
+    }
+
+    .images_menu{
+        position: fixed;
+        z-index: 1;
+        top: 7%;
+    }
+
+    .contenu_global_menu{
+        border-radius: 40px 40px 0px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--box-un);
+        position: relative;
+        z-index: 2;
+        top: 270px;
+        margin-bottom: 72%;
+    }
+
+    .contenu_global_menu a{
+        margin: 10% 0% 20% 0%;
+    }
+
+    .menu{
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 93%;
+    }
+
+    .menu h1{
+        font-family: 'Roboto';
+        font-weight: lighter;
+        font-style: normal;
+        text-transform: uppercase;
+        font-size: 1.2em;
+        
+    }
+
+    .anim{
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .border_titre_menu{
+        border-bottom: solid 4px var(--couleur-tertiaire) ;
+        width: 12%;
+        height: 45px;
+        margin-left: 4%;
+        margin-bottom: 20px;
+    }
+
+    .contenu_menu{
+        background-color: white;
+        border-radius: 15px;
+        padding: 10px;
+        width: 95%;
+        transition: ease-in-out 1s;
+    }
+
+    .contenu_menu h2{
+        font-size: 1.2em;
+        margin: 0;
+    }
+
+    .contenu_menu .sous_contenu_menu{
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+
+    .contenu_menu .sous_contenu_menu p{
+        margin: 0;
+        font-size: 1em;
+        font-weight: lighter;
+        padding-bottom: 5px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .contenu_menu .sous_contenu_menu h3{
+        font-size: 0.9em;
+        margin: 0;
+        padding-left: 2%;
+    }
+
+
+    .contenu_menu:hover{
+        width: 75%;
+        border-radius: 15px 0px 0px 15px;
+        transition: ease-in-out 1.5s;
+    }
+
+
+    .contenu_menu:hover + .check_choix{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        animation: boxCheck 1s;
+        background-color: var(--couleur-tertiaire);
+
+    }
+
+    .anim .check_choix{
+        width: 0%;
+        height: 67px;
+        display: none;
+        border-radius: 0px 15px 15px 0px;
+
+ 
+    }
+
+
+
+    .anim .check_choix i{
+        font-size: 1.5em;
+    }
+
+    .anim_menu{
+        animation: fadein 1.5s;
+        position: relative;
+    }
+
+    @keyframes boxCheckAfter{
+        from{
+            width: 20%;
+        }
+        to{
+            width: 0%;
+        }
+        
+    }
+
+    @keyframes boxCheck{
+        from{
+            width: 0%;
+        }
+        to{
+            width: 20%;
+        }
+    }
+
+    @keyframes fadein {
+        from{
+            opacity: 0;
+            left: -100px;
+            bottom: -100px;
+        }
+        to{
+            opacity: 1;
+            left: 0;
+            bottom: 0;
+        }
+    }
+    
+
+
+/**********************************/
+
+
+    /** Footer **/
+
+    footer{
+        background-color: var(--box-trois);
+        color: white;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items:  flex-start;
+        position: relative;
+        z-index: 2;
+    }
+
+    footer img{
+        width: 30%;
+        fill: white;
+    }
+
+    footer nav ul {
+        list-style: none;
+    }
+
+    footer nav ul li{
+        padding-bottom: 10px;
+    }
+
+    footer nav ul li a{
+        text-decoration: none;
+        color: white;
+    }
+
+    footer nav ul li a:hover{
+        color: var(--couleur-primaire);
+    }
+
+    footer nav ul li a i{
+        padding-right: 10px;
+    }
+
+    /************/
+
 /** Global **/
 
 :root{
