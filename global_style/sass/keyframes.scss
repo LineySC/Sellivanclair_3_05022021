@@ -1,0 +1,28 @@
+@keyframes boxCheck{
+    from{
+        transform: translateX(100);
+    }
+    to{
+        transform: translateX(80);
+    }
+}
+
+@keyframes bonCheckEnd{
+    from{
+        width: 00%;
+    }
+    to{
+        width: 20%;
+    }
+}
+
+@keyframes fadein {
+    from{
+        opacity: 0;
+        left: -100px;
+    }
+    to{
+        opacity: 1;
+        left: 0;
+    }
+}
