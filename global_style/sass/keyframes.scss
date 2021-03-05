@@ -1,15 +1,30 @@
-@keyframes boxCheck{
-    from{
-        transform: translateX(100);
+@keyframes LoaderEnd{
+    0%{
+        opacity: 1;
     }
-    to{
-        transform: translateX(80);
+    99%{
+        opacity:0;
+        transform: scale(1)
+    }
+    100%{
+        transform: scale(0);
+        opacity: 0;
     }
 }
 
-@keyframes bonCheckEnd{
+@keyframes boxCheck{
     from{
-        width: 00%;
+        width: 0%;
+    }
+    to{
+        transform: 20%;
+    }
+}
+
+@keyframes boxCheckChoix{
+    from{
+        width: 0%;
+
     }
     to{
         width: 20%;
@@ -24,5 +39,34 @@
     to{
         opacity: 1;
         left: 0;
+    }
+}
+
+@keyframes animCheckRotate{
+    from{
+        transform: rotateZ(0deg);
+        opacity: 0;
+    }
+    to{
+        transform: rotateZ(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes loaderAnim{
+    from{
+        transform: rotateZ(0);
+    }
+    to{
+        transform: rotateZ(360deg*3);
+    }
+}
+
+@keyframes animOpacityImg{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1; 
     }
 }

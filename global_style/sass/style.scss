@@ -1,12 +1,19 @@
 $cl-primaire: #9356DC;
 $cl-secondaire: #FF79DA;
 $cl-tertiaire: #99E2D0;
+$cl-tertiaire-text:#40886b;
 
 $cl-box-un: #EAEAEA;
 $cl-box-deux: #F6F6F6;
 $cl-box-trois: #353535;
 
 @import 'keyframes';
+
+
+*{
+    scroll-behavior: smooth;
+    transition: 400ms;
+}
 
 body{
     font-family: 'Roboto';
@@ -22,7 +29,7 @@ img{
 }
 
 .shadow{
-    box-shadow: 0 1px 5px black;
+    box-shadow: 0 6px 12px lightgrey;
 }
 
 .btn_explo{
@@ -42,12 +49,71 @@ img{
     padding: 15px 45px 15px 45px;
 }
 
+    /********** Loader index **********/
+
+    .pre_loader{
+        position: relative;
+        z-index: 1;
+        background-color: white;
+    }
+
+    .loader{
+        position: fixed;
+        z-index: 2;
+        background-color: white;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: LoaderEnd 1s ease-in-out 4s 1 normal forwards;
+        .loader_bar{
+            height: 256px;
+            width: 256px;
+            border-radius: 300px;
+            transform-origin: center;
+            transform: rotate(0deg);
+            animation: loaderAnim 3s cubic-bezier(0.45 ,0 ,0 ,1.05);
+            background: linear-gradient(to left, $cl-secondaire, $cl-tertiaire);
+            border-top: 10px;
+
+            .loader_empty{
+                transform-origin: center;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 300px;
+                img{
+                    opacity: 0;
+                    animation: animOpacityImg 3s  3s  forwards;
+                    animation-delay: 2s;
+                    animation-fill-mode: forwards;
+                    transform: rotateZ(0deg);
+
+                }
+            }
+            .loader_bar_2{
+                padding: 10px;
+                height: 224px;
+                width: 224px;
+                border-radius: 300px;
+                transform-origin: center;
+                transform: rotateZ(0deg);
+                background: white;
+            }
+        }
+
+    }
+
     /********** Acceuil **********/
         /*****  Header *****/
 
     @media  all and (max-width:768px){
         header{
-            box-shadow: 0 1px 5px $cl-box-trois;
+
+            background: white;
+            padding: 10px 0 10px 0;
             img{
                 width: 45%;
             }
@@ -67,6 +133,7 @@ img{
                 position: fixed;
                 width: 100%;
                 background-color: $cl-box-un;
+                top: 0%;
                 a{
                     margin: 0% 20% 0% 5%;
                     li{
@@ -90,6 +157,7 @@ img{
             justify-content: center;
             align-items: center;
             padding: 5px 0 5px 0;
+            box-shadow: inset 0px 5px 5px 0px #c0c0c0;
             i{
                 margin-right: 15px;
             }
@@ -108,7 +176,7 @@ img{
             }
             p{
                 text-align: center;
-                padding: 0 10px 10px 0;
+                padding: 0 20px 10px 20px;
             }
         }
 
@@ -116,25 +184,27 @@ img{
 
         .fonctionnement{
             padding: 30px 0 30px 0;
-            .h2{
-                padding-left: 10px;
-                font-size: 1.2em;
+            background-color: white;
+            h2{
+                padding-left: 15px;
+                font-size: 1.4em;
+                font-weight: 600;
             }
             ol{
                 li{
-                    background-color: $cl-box-un;
-                    padding: 20px;
+                    background-color: $cl-box-deux;
+                    padding: 30px 20px 30px 20px;
                     border-radius: 20px;
                     margin: 25px 15px 0 0;
                     font-weight: 600;
                     list-style: none;
                     i{
-                        padding-right: 20px;
+                        padding: 0 20px 0 20px;
                         color: $cl-box-trois;
                     }
                     &:hover{
                         background-color: rgba($color: #9356DC, $alpha: 0.2);
-                        +i{
+                        i{
                             color: $cl-primaire;
                         }
                     }
@@ -150,6 +220,8 @@ img{
                     width: 32px;
                     border-radius: 30px;
                     color: white;
+                    margin-top: -1%;
+                    
                 }
             }
         }
@@ -157,7 +229,7 @@ img{
                 /***** Restaurant *****/
 
                 #restaurants{
-                    background-color: $cl-box-un;
+                    background-color: $cl-box-deux;
                     display: flex;
                     flex-direction: column;
                     padding: 40px 15px 0 15px;
@@ -170,6 +242,19 @@ img{
                         margin-bottom: 20px;
                         border-radius: 15px;
                         height: 80%;
+                        .nouv{
+                            background-color: $cl-tertiaire;
+                            color: $cl-tertiaire-text;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            position: absolute;
+                            border-radius: 3px;
+                            p{
+                                font-size: 1em;
+                            }
+                        }
                         img{
                             border-radius: 15px 15px 0 0;
                             width: 100%;
@@ -233,7 +318,7 @@ img{
                     background-color: $cl-box-un;
                     position: relative;
                     z-index: 2;
-                    top: 20%;
+                    margin-top: 60%;
                     h1{
                         font-family: 'Shrikhand';
                         font-weight: 300;
@@ -302,16 +387,20 @@ img{
                     &:hover{
                         width: 75%;
                         border-radius: 15px 0px 0px 15px;
-                        transition:all ease-in-out 0.5s;
+                        transition: all ease-in-out 0.5s;
+
                         +.check_choix{
                             display: flex;
                             justify-content: center;
                             align-items: center;
                             flex-direction: row;
-                            width: 20%;
+
                             background-color: $cl-tertiaire;
-                            transition:0.2s ease-in-out;
+
+                            animation: boxCheckChoix 0.5s ease ;
+                            animation-fill-mode: forwards;
                             i{
+                                animation: animCheckRotate 0.5s ease-in-out;
                                 display: block;
                             }
                         }
@@ -319,6 +408,7 @@ img{
                     +.check_choix{
                         background-color: $cl-tertiaire;
                         transition: ease-in-out 0.5s;
+                        width: 0%;
                     }
                 }
 
@@ -339,18 +429,16 @@ img{
                     }
                 }
 
-                .animation_menu{
-                    animation: fadein  linear;
+                .anim{
+                    animation: fadein 3s linear;
                     animation-fill-mode: forwards;
                     animation-duration: 0ms;
                     animation-delay: 0ms;
                     position: relative;
                     @for $i from 1 through 12{
-                        &:nth-child(#{$i}) {
-                            animation-delay: $i*150ms;
-                            -webkit-animation-delay: $i*150ms;
-                            animation-duration: $i*150ms;
-                            -webkit-animation-duration: $i*150ms;
+                        &:nth-child(#{$i}){
+                            animation-duration: $i*250ms;
+                            -webkit-animation-duration: $i*250ms;
                         }
                     }
                 }
