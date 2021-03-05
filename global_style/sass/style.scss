@@ -106,16 +106,19 @@ img{
 
     }
 
+/*************** Mobile ***************/
     /********** Acceuil **********/
-        /*****  Header *****/
+        /*****  Header ****768*/
 
-    @media  all and (max-width:768px){
+
         header{
-
             background: white;
             padding: 10px 0 10px 0;
             img{
-                width: 45%;
+                width: 15%;
+                @media all and (max-width:768px) {
+                    width: 45%;
+                }
             }
             .titre{
                 display: flex;
@@ -135,7 +138,10 @@ img{
                 background-color: $cl-box-un;
                 top: 0%;
                 a{
-                    margin: 0% 20% 0% 5%;
+                    margin: 0% 35% 0% 5%;
+                    @media all and (max-width:768px){
+                        margin: 0 20% 0 5%;
+                    }
                     li{
                         color: $cl-box-trois;
                         font-size: 1.5em;
@@ -186,18 +192,27 @@ img{
             padding: 30px 0 30px 0;
             background-color: white;
             h2{
-                padding-left: 15px;
                 font-size: 1.4em;
                 font-weight: 600;
+                display: flex;
+                justify-content: center;
+                @media all and (max-width: 768px) {
+                    justify-content: flex-start;
+                    padding-left: 15px;
+                }
             }
             ol{
                 li{
                     background-color: $cl-box-deux;
                     padding: 30px 20px 30px 20px;
                     border-radius: 20px;
-                    margin: 25px 15px 0 0;
+                    margin: 25px 0 0 0;
                     font-weight: 600;
                     list-style: none;
+                    @media all and (max-width: 768px) {
+                        margin: 25px 15px 0 0;
+                        width: 90%
+                    }
                     i{
                         padding: 0 20px 0 20px;
                         color: $cl-box-trois;
@@ -231,8 +246,26 @@ img{
                 #restaurants{
                     background-color: $cl-box-deux;
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    flex-wrap: wrap;
+                    align-content: center;
+
                     padding: 40px 15px 0 15px;
+                    @media all and (max-width:768px){
+                        display: flex;
+                        flex-direction: column;
+                        padding: 40px 15px 0 15px;
+                    }
+                    h2{
+                        width: 100%;
+                        margin-bottom: 5%;
+                        display: flex;
+                        justify-content: center;
+                        @media all and (max-width:768px) {
+                            justify-content: flex-start;
+                        }
+                    }
                     .boite_restaurant{
                         background-color: white;
                         display: flex;
@@ -241,7 +274,11 @@ img{
                         justify-content: center;
                         margin-bottom: 20px;
                         border-radius: 15px;
-                        height: 80%;
+                        width: 40%;
+                        @media all and (max-width: 768px) {
+                            height: 80%;
+                            width: 100%;
+                        }
                         .nouv{
                             background-color: $cl-tertiaire;
                             color: $cl-tertiaire-text;
@@ -264,12 +301,15 @@ img{
                             width: 100%;
                             text-decoration: none;
                             color: black;
+
                         }
                         h2{
+                            width: 100%;
                             padding: 20px 0 0 15px;
                             font-size: 1.2em;
                             line-height: 5px;
                             margin: 0;
+                            display: block;
                         }
                         p{
                             padding: 0 0 5px 15px;
@@ -456,8 +496,13 @@ img{
             position: relative;
             z-index: 2;
             img{
-                width: 30%;
+                margin: 1% 0 0 2%;
+                width: 15%;
                 fill: white;
+                @media all and (max-width: 768px) {
+                    margin: 2% 0 0 5%;
+                    width: 30%;
+                }
             }
             nav{
                 ul{
@@ -479,4 +524,8 @@ img{
             }
         }
         
-    }
+    
+
+/*************** PC ***************/
+
+        
