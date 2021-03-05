@@ -1,12 +1,25 @@
-@keyframes boxCheck {
-  from {
-    transform: translateX(100);
+@keyframes LoaderEnd {
+  0% {
+    opacity: 1;
   }
-  to {
-    transform: translateX(80);
+  99% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
   }
 }
-@keyframes bonCheckEnd {
+@keyframes boxCheck {
+  from {
+    width: 0%;
+  }
+  to {
+    transform: 20%;
+  }
+}
+@keyframes boxCheckChoix {
   from {
     width: 0%;
   }
@@ -24,6 +37,37 @@
     left: 0;
   }
 }
+@keyframes animCheckRotate {
+  from {
+    transform: rotateZ(0deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateZ(360deg);
+    opacity: 1;
+  }
+}
+@keyframes loaderAnim {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(1080deg);
+  }
+}
+@keyframes animOpacityImg {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+* {
+  scroll-behavior: smooth;
+  transition: 400ms;
+}
+
 body {
   font-family: "Roboto";
   font-size: 100%;
@@ -38,7 +82,7 @@ img {
 }
 
 .shadow {
-  box-shadow: 0 1px 5px black;
+  box-shadow: 0 6px 12px lightgrey;
 }
 
 .btn_explo {
@@ -57,11 +101,65 @@ img {
   padding: 15px 45px 15px 45px;
 }
 
+/********** Loader index **********/
+.pre_loader {
+  position: relative;
+  z-index: 1;
+  background-color: white;
+}
+
+.loader {
+  position: fixed;
+  z-index: 2;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: LoaderEnd 1s ease-in-out 4s 1 normal forwards;
+}
+.loader .loader_bar {
+  height: 256px;
+  width: 256px;
+  border-radius: 300px;
+  transform-origin: center;
+  transform: rotate(0deg);
+  animation: loaderAnim 3s cubic-bezier(0.45, 0, 0, 1.05);
+  background: linear-gradient(to left, #FF79DA, #99E2D0);
+  border-top: 10px;
+}
+.loader .loader_bar .loader_empty {
+  transform-origin: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 300px;
+}
+.loader .loader_bar .loader_empty img {
+  opacity: 0;
+  animation: animOpacityImg 3s 3s forwards;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+  transform: rotateZ(0deg);
+}
+.loader .loader_bar .loader_bar_2 {
+  padding: 10px;
+  height: 224px;
+  width: 224px;
+  border-radius: 300px;
+  transform-origin: center;
+  transform: rotateZ(0deg);
+  background: white;
+}
+
 /********** Acceuil **********/
 /*****  Header *****/
 @media all and (max-width: 768px) {
   header {
-    box-shadow: 0 1px 5px #353535;
+    background: white;
+    padding: 10px 0 10px 0;
   }
   header img {
     width: 45%;
@@ -81,6 +179,7 @@ img {
     position: fixed;
     width: 100%;
     background-color: #EAEAEA;
+    top: 0%;
   }
   header .back a {
     margin: 0% 20% 0% 5%;
@@ -102,6 +201,7 @@ img {
     justify-content: center;
     align-items: center;
     padding: 5px 0 5px 0;
+    box-shadow: inset 0px 5px 5px 0px #c0c0c0;
   }
   .gps i {
     margin-right: 15px;
@@ -122,33 +222,35 @@ img {
   }
   .explorez p {
     text-align: center;
-    padding: 0 10px 10px 0;
+    padding: 0 20px 10px 20px;
   }
 
   /***** Fonctionnement *****/
   .fonctionnement {
     padding: 30px 0 30px 0;
+    background-color: white;
   }
-  .fonctionnement .h2 {
-    padding-left: 10px;
-    font-size: 1.2em;
+  .fonctionnement h2 {
+    padding-left: 15px;
+    font-size: 1.4em;
+    font-weight: 600;
   }
   .fonctionnement ol li {
-    background-color: #EAEAEA;
-    padding: 20px;
+    background-color: #F6F6F6;
+    padding: 30px 20px 30px 20px;
     border-radius: 20px;
     margin: 25px 15px 0 0;
     font-weight: 600;
     list-style: none;
   }
   .fonctionnement ol li i {
-    padding-right: 20px;
+    padding: 0 20px 0 20px;
     color: #353535;
   }
   .fonctionnement ol li:hover {
     background-color: rgba(147, 86, 220, 0.2);
   }
-  .fonctionnement ol li:hover + i {
+  .fonctionnement ol li:hover i {
     color: #9356DC;
   }
   .fonctionnement ol .number_list {
@@ -161,11 +263,12 @@ img {
     width: 32px;
     border-radius: 30px;
     color: white;
+    margin-top: -1%;
   }
 
   /***** Restaurant *****/
   #restaurants {
-    background-color: #EAEAEA;
+    background-color: #F6F6F6;
     display: flex;
     flex-direction: column;
     padding: 40px 15px 0 15px;
@@ -179,6 +282,19 @@ img {
     margin-bottom: 20px;
     border-radius: 15px;
     height: 80%;
+  }
+  #restaurants .boite_restaurant .nouv {
+    background-color: #99E2D0;
+    color: #40886b;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 3px;
+  }
+  #restaurants .boite_restaurant .nouv p {
+    font-size: 1em;
   }
   #restaurants .boite_restaurant img {
     border-radius: 15px 15px 0 0;
@@ -243,7 +359,7 @@ img {
     background-color: #EAEAEA;
     position: relative;
     z-index: 2;
-    top: 20%;
+    margin-top: 60%;
   }
   .contenu_global_menu h1 {
     font-family: "Shrikhand";
@@ -319,16 +435,18 @@ img {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    width: 20%;
     background-color: #99E2D0;
-    transition: 0.2s ease-in-out;
+    animation: boxCheckChoix 0.5s ease;
+    animation-fill-mode: forwards;
   }
   .contenu_menu:hover + .check_choix i {
+    animation: animCheckRotate 0.5s ease-in-out;
     display: block;
   }
   .contenu_menu + .check_choix {
     background-color: #99E2D0;
     transition: ease-in-out 0.5s;
+    width: 0%;
   }
 
   .anim {
@@ -348,84 +466,60 @@ img {
     color: white;
   }
 
-  .animation_menu {
-    animation: fadein linear;
+  .anim {
+    animation: fadein 3s linear;
     animation-fill-mode: forwards;
     animation-duration: 0ms;
     animation-delay: 0ms;
     position: relative;
   }
-  .animation_menu:nth-child(1) {
-    animation-delay: 150ms;
-    -webkit-animation-delay: 150ms;
-    animation-duration: 150ms;
-    -webkit-animation-duration: 150ms;
+  .anim:nth-child(1) {
+    animation-duration: 250ms;
+    -webkit-animation-duration: 250ms;
   }
-  .animation_menu:nth-child(2) {
-    animation-delay: 300ms;
-    -webkit-animation-delay: 300ms;
-    animation-duration: 300ms;
-    -webkit-animation-duration: 300ms;
+  .anim:nth-child(2) {
+    animation-duration: 500ms;
+    -webkit-animation-duration: 500ms;
   }
-  .animation_menu:nth-child(3) {
-    animation-delay: 450ms;
-    -webkit-animation-delay: 450ms;
-    animation-duration: 450ms;
-    -webkit-animation-duration: 450ms;
-  }
-  .animation_menu:nth-child(4) {
-    animation-delay: 600ms;
-    -webkit-animation-delay: 600ms;
-    animation-duration: 600ms;
-    -webkit-animation-duration: 600ms;
-  }
-  .animation_menu:nth-child(5) {
-    animation-delay: 750ms;
-    -webkit-animation-delay: 750ms;
+  .anim:nth-child(3) {
     animation-duration: 750ms;
     -webkit-animation-duration: 750ms;
   }
-  .animation_menu:nth-child(6) {
-    animation-delay: 900ms;
-    -webkit-animation-delay: 900ms;
-    animation-duration: 900ms;
-    -webkit-animation-duration: 900ms;
+  .anim:nth-child(4) {
+    animation-duration: 1000ms;
+    -webkit-animation-duration: 1000ms;
   }
-  .animation_menu:nth-child(7) {
-    animation-delay: 1050ms;
-    -webkit-animation-delay: 1050ms;
-    animation-duration: 1050ms;
-    -webkit-animation-duration: 1050ms;
+  .anim:nth-child(5) {
+    animation-duration: 1250ms;
+    -webkit-animation-duration: 1250ms;
   }
-  .animation_menu:nth-child(8) {
-    animation-delay: 1200ms;
-    -webkit-animation-delay: 1200ms;
-    animation-duration: 1200ms;
-    -webkit-animation-duration: 1200ms;
-  }
-  .animation_menu:nth-child(9) {
-    animation-delay: 1350ms;
-    -webkit-animation-delay: 1350ms;
-    animation-duration: 1350ms;
-    -webkit-animation-duration: 1350ms;
-  }
-  .animation_menu:nth-child(10) {
-    animation-delay: 1500ms;
-    -webkit-animation-delay: 1500ms;
+  .anim:nth-child(6) {
     animation-duration: 1500ms;
     -webkit-animation-duration: 1500ms;
   }
-  .animation_menu:nth-child(11) {
-    animation-delay: 1650ms;
-    -webkit-animation-delay: 1650ms;
-    animation-duration: 1650ms;
-    -webkit-animation-duration: 1650ms;
+  .anim:nth-child(7) {
+    animation-duration: 1750ms;
+    -webkit-animation-duration: 1750ms;
   }
-  .animation_menu:nth-child(12) {
-    animation-delay: 1800ms;
-    -webkit-animation-delay: 1800ms;
-    animation-duration: 1800ms;
-    -webkit-animation-duration: 1800ms;
+  .anim:nth-child(8) {
+    animation-duration: 2000ms;
+    -webkit-animation-duration: 2000ms;
+  }
+  .anim:nth-child(9) {
+    animation-duration: 2250ms;
+    -webkit-animation-duration: 2250ms;
+  }
+  .anim:nth-child(10) {
+    animation-duration: 2500ms;
+    -webkit-animation-duration: 2500ms;
+  }
+  .anim:nth-child(11) {
+    animation-duration: 2750ms;
+    -webkit-animation-duration: 2750ms;
+  }
+  .anim:nth-child(12) {
+    animation-duration: 3000ms;
+    -webkit-animation-duration: 3000ms;
   }
 
   /********** Footer **********/
