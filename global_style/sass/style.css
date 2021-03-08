@@ -19,32 +19,30 @@
     width: 20%;
   }
 }
-@keyframes boxCheckChoix {
+@keyframes checkChoixAnim {
   from {
-    width: 0%;
+    width: 0;
   }
   to {
-    width: 20%;
+    width: 100px;
   }
 }
 @keyframes fadein {
   from {
     opacity: 0;
-    left: -100px;
+    margin-bottom: 0px;
   }
   to {
     opacity: 1;
-    left: 0;
+    margin-bottom: 20px;
   }
 }
 @keyframes animCheckRotate {
   from {
     transform: rotateZ(0deg);
-    opacity: 0;
   }
   to {
     transform: rotateZ(360deg);
-    opacity: 1;
   }
 }
 @keyframes loaderAnim {
@@ -52,7 +50,7 @@
     transform: rotateZ(0);
   }
   to {
-    transform: rotateZ(1080deg);
+    transform: rotateZ(2520deg);
   }
 }
 @keyframes animOpacityImg {
@@ -71,7 +69,7 @@
 body {
   font-family: "Roboto";
   font-size: 100%;
-  margin: 0;
+  margin: 0 auto;
   background-color: #FFFFFF;
 }
 
@@ -95,6 +93,8 @@ img {
 }
 .btn_explo:hover {
   cursor: pointer;
+  background: linear-gradient(rgba(255, 121, 218, 0.9) 0%, rgba(147, 86, 220, 0.9) 80%);
+  box-shadow: 0 7px 15px grey;
 }
 
 .btn_commande {
@@ -183,6 +183,7 @@ header .back {
   z-index: 3;
   position: fixed;
   width: 100%;
+  height: 50px;
   background-color: #EAEAEA;
   top: 0%;
 }
@@ -241,29 +242,30 @@ header .back a i {
   background-color: white;
 }
 .fonctionnement h2 {
+  padding-left: 15px;
   font-size: 1.4em;
   font-weight: 600;
   display: flex;
   justify-content: center;
 }
-@media all and (max-width: 768px) {
-  .fonctionnement h2 {
-    justify-content: flex-start;
-    padding-left: 15px;
-  }
+.fonctionnement ol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .fonctionnement ol li {
   background-color: #F6F6F6;
   padding: 30px 20px 30px 20px;
   border-radius: 20px;
-  margin: 25px 0 0 0;
+  margin: 25px 15px 0 0;
   font-weight: 600;
   list-style: none;
+  width: 50%;
 }
 @media all and (max-width: 768px) {
   .fonctionnement ol li {
-    margin: 25px 15px 0 0;
-    width: 90%;
+    width: 80%;
   }
 }
 .fonctionnement ol li i {
@@ -277,7 +279,7 @@ header .back a i {
   color: #9356DC;
 }
 .fonctionnement ol .number_list {
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -286,7 +288,9 @@ header .back a i {
   width: 32px;
   border-radius: 30px;
   color: white;
-  margin-top: -1%;
+  margin-top: -47px;
+  right: 34px;
+  top: 40px;
 }
 
 /***** Restaurant *****/
@@ -341,10 +345,21 @@ header .back a i {
   justify-content: center;
   align-items: center;
   position: absolute;
+  z-index: 2;
   border-radius: 3px;
+  margin-top: 10px;
+  margin-left: 28%;
+}
+@media all and (max-width: 768px) {
+  #restaurants .boite_restaurant .nouv {
+    margin-bottom: 46%;
+    margin-left: 66%;
+  }
 }
 #restaurants .boite_restaurant .nouv p {
   font-size: 1em;
+  margin: 0;
+  padding: 10px;
 }
 #restaurants .boite_restaurant img {
   border-radius: 15px 15px 0 0;
@@ -376,17 +391,32 @@ header .back a i {
   font-size: 1.3em;
 }
 #restaurants .boite_restaurant .fa-heart:hover {
-  display: none;
+  fill: #40886b;
 }
 
 .menu_global {
   background-color: #EAEAEA;
+  display: flex;
+  justify-content: center;
 }
 
 .images_menu {
   position: fixed;
   z-index: 1;
   top: 7%;
+}
+@media screen and (max-width: 768px) {
+  .images_menu {
+    width: 100%;
+  }
+}
+.images_menu img {
+  width: 1920px;
+}
+@media all and (max-width: 768px) {
+  .images_menu img {
+    width: 100%;
+  }
 }
 
 .titre_menu {
@@ -402,6 +432,11 @@ header .back a i {
 .titre_menu i {
   font-size: 1.5em;
 }
+.titre_menu i:hover {
+  background-clip: text;
+  background: linear-gradient(#FF79DA 0%, #9356DC 80%);
+  -webkit-text-fill-color: transparent;
+}
 
 .contenu_global_menu {
   border-radius: 40px 40px 0px 0px;
@@ -411,7 +446,14 @@ header .back a i {
   background-color: #EAEAEA;
   position: relative;
   z-index: 2;
-  margin-top: 60%;
+  margin-top: 10%;
+  width: 50%;
+}
+@media all and (max-width: 768px) {
+  .contenu_global_menu {
+    margin-top: 60%;
+    width: 100%;
+  }
 }
 .contenu_global_menu h1 {
   font-family: "Shrikhand";
@@ -447,23 +489,33 @@ header .back a i {
 .contenu_menu {
   background-color: white;
   border-radius: 15px;
-  padding: 10px;
-  width: 95%;
-  transition: ease-in-out 0.5s;
+  width: 100%;
+  transition: ease-in-out 0.7s;
+  display: flex;
+  justify-content: space-between;
 }
-.contenu_menu h2 {
+@media all and (max-width: 768px) {
+  .contenu_menu {
+    width: 100%;
+  }
+}
+.contenu_menu .contenu_menu_text {
+  padding: 10px;
+  width: 100%;
+}
+.contenu_menu .contenu_menu_text h2 {
   font-size: 1.2em;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.contenu_menu .sous_contenu_menu {
+.contenu_menu .contenu_menu_text .sous_contenu_menu {
   display: flex;
   justify-content: space-between;
   overflow: hidden;
 }
-.contenu_menu .sous_contenu_menu p {
+.contenu_menu .contenu_menu_text .sous_contenu_menu p {
   margin: 0;
   font-size: 1em;
   font-weight: lighter;
@@ -472,50 +524,53 @@ header .back a i {
   white-space: nowrap;
   overflow: hidden;
 }
-.contenu_menu .sous_contenu_menu h3 {
+.contenu_menu .contenu_menu_text .sous_contenu_menu h3 {
   font-size: 0.9em;
   margin: 0;
   padding-left: 2%;
 }
-.contenu_menu:hover {
-  width: 75%;
-  border-radius: 15px 0px 0px 15px;
-  transition: all ease-in-out 0.5s;
+.contenu_menu .check_choix {
+  transition: all ease-in-out 1s;
+  color: white;
+  background-color: #99E2D0;
+  justify-content: center;
+  align-content: center;
+  border-radius: 0 15px 15px 0;
+  display: none;
+  width: 0px;
 }
-.contenu_menu:hover + .check_choix {
+.contenu_menu .check_choix i {
+  font-size: 1.2em;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  background-color: #99E2D0;
-  animation: boxCheckChoix 0.5s ease;
-  animation-fill-mode: forwards;
+  overflow: hidden;
 }
-.contenu_menu:hover + .check_choix i {
-  animation: animCheckRotate 0.5s ease-in-out;
-  display: block;
+.contenu_menu:hover {
+  transition: all ease-in-out 1s;
 }
-.contenu_menu + .check_choix {
-  background-color: #99E2D0;
-  transition: ease-in-out 0.5s;
-  width: 0%;
+@media all and (max-width: 768px) {
+  .contenu_menu:hover .contenu_menu_text {
+    width: 90%;
+    transition: all ease-in-out 0.7s;
+    overflow: hidden;
+  }
+}
+.contenu_menu:hover .check_choix {
+  display: flex;
+  align-items: center;
+  transition: all ease-in-out 0.7s;
+  animation: checkChoixAnim 0.7s ease-in-out forwards;
+}
+.contenu_menu:hover .check_choix i {
+  display: flex;
+  font-size: 1.5em;
+  animation: animCheckRotate 0.7s ease-in-out;
 }
 
 .anim {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
-}
-.anim .check_choix {
-  height: 67px;
-  width: 0%;
-  border-radius: 0px 15px 15px 0px;
-  transition: ease-in-out 0.5s;
-}
-.anim .check_choix i {
-  display: none;
-  font-size: 1.5em;
-  color: white;
 }
 
 .anim {

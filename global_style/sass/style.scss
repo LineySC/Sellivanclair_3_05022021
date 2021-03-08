@@ -18,7 +18,7 @@ $cl-box-trois: #353535;
 body{
     font-family: 'Roboto';
     font-size: 100%;
-    margin: 0;
+    margin: 0 auto;
     background-color: #FFFFFF;
 }
 
@@ -42,6 +42,8 @@ img{
     
     &:hover{
         cursor: pointer;
+        background: linear-gradient(rgba(255, 121, 218, 0.9) 0%, rgba(147, 86, 220, 0.9) 80%);
+        box-shadow: 0 7px 15px grey;
     }
 }
 
@@ -135,6 +137,7 @@ img{
                 z-index: 3;
                 position: fixed;
                 width: 100%;
+                height: 50px;
                 background-color: $cl-box-un;
                 top: 0%;
                 a{
@@ -188,45 +191,46 @@ img{
 
             /***** Fonctionnement *****/
 
-        .fonctionnement{
-            padding: 30px 0 30px 0;
-            background-color: white;
-            h2{
-                font-size: 1.4em;
-                font-weight: 600;
-                display: flex;
-                justify-content: center;
-                @media all and (max-width: 768px) {
-                    justify-content: flex-start;
+            .fonctionnement{
+                padding: 30px 0 30px 0;
+                background-color: white;
+                h2{
                     padding-left: 15px;
-                }
-            }
-            ol{
-                li{
-                    background-color: $cl-box-deux;
-                    padding: 30px 20px 30px 20px;
-                    border-radius: 20px;
-                    margin: 25px 0 0 0;
+                    font-size: 1.4em;
                     font-weight: 600;
-                    list-style: none;
-                    @media all and (max-width: 768px) {
-                        margin: 25px 15px 0 0;
-                        width: 90%
-                    }
-                    i{
-                        padding: 0 20px 0 20px;
-                        color: $cl-box-trois;
-                    }
-                    &:hover{
-                        background-color: rgba($color: #9356DC, $alpha: 0.2);
-                        i{
-                            color: $cl-primaire;
-                        }
-                    }
-
+                    display: flex;
+                    justify-content: center;
                 }
+                ol{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    li{
+                        background-color: $cl-box-deux;
+                        padding: 30px 20px 30px 20px;
+                        border-radius: 20px;
+                        margin: 25px 15px 0 0;
+                        font-weight: 600;
+                        list-style: none;
+                        width: 50%;
+                        @media all and (max-width: 768px) {
+                            width: 80%;
+                        }
+                        i{
+                            padding: 0 20px 0 20px;
+                            color: $cl-box-trois;
+                        }
+                        &:hover{
+                            background-color: rgba($color: #9356DC, $alpha: 0.2);
+                            i{
+                                color: $cl-primaire;
+                            }
+                        }
+    
+                    }
                 .number_list{
-                    position: absolute;
+                    position: relative;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -235,7 +239,9 @@ img{
                     width: 32px;
                     border-radius: 30px;
                     color: white;
-                    margin-top: -1%;
+                    margin-top: -47px;
+                    right: 34px;
+                    top: 40px;
                     
                 }
             }
@@ -287,9 +293,18 @@ img{
                             justify-content: center;
                             align-items: center;
                             position: absolute;
+                            z-index: 2;
                             border-radius: 3px;
+                            margin-top: 10px;
+                            margin-left: 28%;
+                            @media all and (max-width: 768px) {
+                                margin-bottom: 46%;
+                                margin-left: 66%;
+                            }
                             p{
                                 font-size: 1em;
+                                margin: 0;
+                                padding: 10px;
                             }
                         }
                         img{
@@ -322,7 +337,7 @@ img{
                             left: 85%;
                             font-size: 1.3em;
                             &:hover{
-                                display: none;
+                                fill: #40886b;
                             }
                         }
 
@@ -330,11 +345,23 @@ img{
                 }
                 .menu_global{
                     background-color: $cl-box-un;
+                    display: flex;
+                    justify-content: center;
                 }
                 .images_menu{
                     position: fixed;
                     z-index: 1;
                     top: 7%;
+                    @media screen and (max-width: 768px) {
+                        width: 100%;
+
+                    }
+                    img{
+                        width: 1920px;
+                        @media all and (max-width: 768px) {
+                            width: 100%;
+                        }
+                    }
                 }
                 .titre_menu{
                     display: flex;
@@ -347,6 +374,11 @@ img{
                     }
                     i{
                         font-size: 1.5em;
+                        &:hover{
+                            background-clip: text;
+                            background: linear-gradient($cl-secondaire 0%, $cl-primaire 80%);
+                            -webkit-text-fill-color: transparent;
+                        }
                     }
                 }
 
@@ -358,7 +390,12 @@ img{
                     background-color: $cl-box-un;
                     position: relative;
                     z-index: 2;
-                    margin-top: 60%;
+                    margin-top: 10%;
+                    width: 50%;
+                    @media all and (max-width: 768px) {
+                        margin-top: 60%;
+                        width: 100%;
+                    }   
                     h1{
                         font-family: 'Shrikhand';
                         font-weight: 300;
@@ -395,78 +432,90 @@ img{
                 .contenu_menu{
                     background-color: white;
                     border-radius: 15px;
-                    padding: 10px;
-                    width: 95%;
-                    transition: ease-in-out 0.5s;
-                    h2{
-                        font-size: 1.2em;
-                        margin: 0;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
+                    width: 100%;
+                    transition: ease-in-out 0.7s;
+                    display: flex;
+                    justify-content: space-between;
+                    @media all and (max-width:768px) {
+                        width: 100%;
                     }
-                    .sous_contenu_menu{
-                        display: flex;
-                        justify-content: space-between;
-                        overflow: hidden;
-                        p{
+                    .contenu_menu_text{
+                        padding: 10px;
+                        width: 100%;
+                        h2{
+                            font-size: 1.2em;
                             margin: 0;
-                            font-size: 1em;
-                            font-weight: lighter;
-                            padding-bottom: 5px;
+                            overflow: hidden;
                             text-overflow: ellipsis;
                             white-space: nowrap;
-                            overflow: hidden; 
                         }
-                        h3{
-                            font-size: 0.9em;
-                            margin: 0;
-                            padding-left: 2%;
-                        }
-                    }
-                    &:hover{
-                        width: 75%;
-                        border-radius: 15px 0px 0px 15px;
-                        transition: all ease-in-out 0.5s;
-
-                        +.check_choix{
+                        .sous_contenu_menu{
                             display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            flex-direction: row;
-
-                            background-color: $cl-tertiaire;
-
-                            animation: boxCheckChoix 0.5s ease ;
-                            animation-fill-mode: forwards;
-                            i{
-                                animation: animCheckRotate 0.5s ease-in-out;
-                                display: block;
+                            justify-content: space-between;
+                            overflow: hidden;
+                            p{
+                                margin: 0;
+                                font-size: 1em;
+                                font-weight: lighter;
+                                padding-bottom: 5px;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                overflow: hidden; 
+                            }
+                            h3{
+                                font-size: 0.9em;
+                                margin: 0;
+                                padding-left: 2%;
                             }
                         }
                     }
-                    +.check_choix{
+
+                    .check_choix{
+                        transition: all ease-in-out 1s;
+                        color: white;
                         background-color: $cl-tertiaire;
-                        transition: ease-in-out 0.5s;
-                        width: 0%;
+                        justify-content: center;
+                        align-content: center;
+                        border-radius: 0 15px 15px 0;
+                        display: none;
+                        width: 0px;
+                        i{
+                            font-size: 1.2em;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            overflow: hidden;
+                        }
                     }
+                    &:hover{
+                        transition: all ease-in-out 1s;
+                        .contenu_menu_text{
+                            @media all and (max-width: 768px) {
+                                width: 90%;
+                                transition: all ease-in-out 0.7s;
+                                overflow: hidden;
+                            }
+                        }
+                        .check_choix{
+                            display: flex;
+                            align-items: center;
+                            transition: all ease-in-out 0.7s;
+                            animation: checkChoixAnim 0.7s ease-in-out forwards;
+                            i{
+                                display: flex;
+                                font-size: 1.5em;
+
+                                animation: animCheckRotate 0.7s ease-in-out;
+                            }
+                        }
+                    }
+
                 }
+
 
                 .anim{
                     display: flex;
                     align-items: center;
-                    margin-bottom: 20px;
-                    .check_choix{
-                        height: 67px;
-                        width: 0%;
-                        border-radius: 0px 15px 15px 0px;
-                        transition: ease-in-out 0.5s;
-                        i{
-                            display: none;
-                            font-size: 1.5em;
-                            color: white
-                        }
-                    }
                 }
 
                 .anim{
@@ -482,6 +531,8 @@ img{
                         }
                     }
                 }
+
+
 
 
         /********** Footer **********/
