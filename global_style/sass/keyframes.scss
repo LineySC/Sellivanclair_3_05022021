@@ -17,39 +17,39 @@
         width: 0%;
     }
     to{
-        transform: 20%;
-    }
-}
-
-@keyframes boxCheckChoix{
-    from{
-        width: 0%;
-
-    }
-    to{
         width: 20%;
     }
 }
 
+@keyframes checkChoixAnim{
+    from{
+        width: 0;
+    }
+    to{
+        width: 100px;
+    }
+}
+
+
 @keyframes fadein {
     from{
         opacity: 0;
-        left: -100px;
+        margin-bottom: 0px;
     }
     to{
         opacity: 1;
-        left: 0;
+        margin-bottom: 20px;
     }
 }
 
 @keyframes animCheckRotate{
     from{
         transform: rotateZ(0deg);
-        opacity: 0;
+
     }
     to{
         transform: rotateZ(360deg);
-        opacity: 1;
+
     }
 }
 
@@ -58,7 +58,7 @@
         transform: rotateZ(0);
     }
     to{
-        transform: rotateZ(360deg*3);
+        transform: rotateZ(360deg*7);
     }
 }
 
