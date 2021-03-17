@@ -460,7 +460,6 @@ header .back a i {
   z-index: 2;
 }
 .titre_menu .favoris_menu:hover {
-  background-clip: text;
   background: linear-gradient(#FF79DA 0%, #9356DC 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
