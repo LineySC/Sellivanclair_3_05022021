@@ -172,7 +172,7 @@ header {
 header img {
   width: 15%;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   header img {
     width: 45%;
   }
@@ -198,7 +198,7 @@ header .back {
 header .back a {
   margin: 0% 35% 0% 5%;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   header .back a {
     margin: 0 20% 0 5%;
   }
@@ -271,7 +271,7 @@ header .back a i {
   list-style: none;
   width: 50%;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   .fonctionnement ol li {
     width: 80%;
   }
@@ -311,7 +311,7 @@ header .back a i {
   align-content: center;
   padding: 40px 15px 0 15px;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #restaurants {
     display: flex;
     flex-direction: column;
@@ -324,7 +324,7 @@ header .back a i {
   display: flex;
   justify-content: center;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #restaurants h2 {
     justify-content: flex-start;
   }
@@ -340,7 +340,7 @@ header .back a i {
   width: 40%;
   position: relative;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   #restaurants .boite_restaurant {
     height: 80%;
     width: 100%;
@@ -378,22 +378,19 @@ header .back a i {
   width: 100%;
   padding: 20px 0 0 15px;
   font-size: 1.2em;
-  line-height: 5px;
   margin: 0;
   display: block;
 }
 #restaurants .boite_restaurant p {
   padding: 0 0 5px 15px;
   font-size: 1.2em;
-  line-height: 5px;
   margin-top: 0;
 }
 #restaurants .boite_restaurant .favoris {
-  position: relative;
+  position: absolute;
+  right: 30px;
+  bottom: 35px;
   font-size: 1.4em;
-  display: flex;
-  justify-content: right;
-  padding-right: 20px;
 }
 #restaurants .boite_restaurant .favoris .heart-full {
   z-index: 1;
@@ -407,7 +404,7 @@ header .back a i {
   background: linear-gradient(#FF79DA 0%, #9356DC 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  position: relative;
+  position: absolute;
 }
 #restaurants .boite_restaurant .favoris:hover .heart-full {
   display: contents;
@@ -427,7 +424,7 @@ header .back a i {
   z-index: 1;
   top: 7%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .images_menu {
     width: 100%;
   }
@@ -435,7 +432,7 @@ header .back a i {
 .images_menu img {
   width: 1920px;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   .images_menu img {
     width: 100%;
   }
@@ -498,7 +495,7 @@ header .back a i {
   margin-top: 10%;
   width: 50%;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   .contenu_global_menu {
     margin-top: 60%;
     width: 100%;
@@ -543,7 +540,7 @@ header .back a i {
   display: flex;
   justify-content: space-between;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   .contenu_menu {
     width: 100%;
   }
@@ -598,7 +595,7 @@ header .back a i {
 .contenu_menu:hover {
   transition: all ease-in-out 1s;
 }
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
   .contenu_menu:hover .contenu_menu_text {
     width: 90%;
     transition: all ease-in-out 0.7s;
@@ -689,16 +686,13 @@ footer {
   position: relative;
   z-index: 2;
 }
-footer img {
-  margin: 1% 0 0 2%;
-  width: 15%;
-  fill: white;
-}
-@media all and (max-width: 768px) {
-  footer img {
-    margin: 2% 0 0 5%;
-    width: 30%;
-  }
+footer p {
+  font-size: 1.6em;
+  font-family: "Shrikhand";
+  padding-top: 20px;
+  margin: 0;
+  margin-left: 40px;
+  color: white;
 }
 footer nav ul {
   list-style-type: none;
