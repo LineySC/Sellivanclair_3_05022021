@@ -61,6 +61,14 @@
     opacity: 1;
   }
 }
+@keyframes heartAnim {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 * {
   scroll-behavior: smooth;
   transition: 400ms;
@@ -330,6 +338,7 @@ header .back a i {
   margin-bottom: 20px;
   border-radius: 15px;
   width: 40%;
+  position: relative;
 }
 @media all and (max-width: 768px) {
   #restaurants .boite_restaurant {
@@ -347,14 +356,8 @@ header .back a i {
   position: absolute;
   z-index: 2;
   border-radius: 3px;
-  margin-top: 10px;
-  margin-left: 28%;
-}
-@media all and (max-width: 768px) {
-  #restaurants .boite_restaurant .nouv {
-    margin-bottom: 46%;
-    margin-left: 66%;
-  }
+  top: 3%;
+  right: 2%;
 }
 #restaurants .boite_restaurant .nouv p {
   font-size: 1em;
@@ -385,13 +388,32 @@ header .back a i {
   line-height: 5px;
   margin-top: 0;
 }
-#restaurants .boite_restaurant .fa-heart {
+#restaurants .boite_restaurant .favoris {
   position: relative;
-  left: 85%;
-  font-size: 1.3em;
+  font-size: 1.4em;
+  display: flex;
+  justify-content: right;
+  padding-right: 20px;
 }
-#restaurants .boite_restaurant .fa-heart:hover {
-  fill: #40886b;
+#restaurants .boite_restaurant .favoris .heart-full {
+  z-index: 1;
+  display: none;
+}
+#restaurants .boite_restaurant .favoris .heart-empty {
+  position: relative;
+  z-index: 2;
+}
+#restaurants .boite_restaurant .favoris:hover {
+  background: linear-gradient(#FF79DA 0%, #9356DC 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+#restaurants .boite_restaurant .favoris:hover .heart-full {
+  display: contents;
+}
+#restaurants .boite_restaurant .favoris:hover .heart-empty {
+  position: absolute;
 }
 
 .menu_global {
@@ -429,15 +451,42 @@ header .back a i {
 .titre_menu h1 {
   font-size: 1.5em;
 }
-.titre_menu i {
+.titre_menu .favoris_menu {
+  position: relative;
   font-size: 1.5em;
 }
-.titre_menu i:hover {
+.titre_menu .favoris_menu .heart-full {
+  z-index: 1;
+  display: none;
+}
+.titre_menu .favoris_menu .heart-empty {
+  z-index: 2;
+}
+.titre_menu .favoris_menu:hover {
   background-clip: text;
   background: linear-gradient(#FF79DA 0%, #9356DC 80%);
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.titre_menu .favoris_menu:hover .heart-full {
+  display: contents;
+  transform-origin: center;
+}
+.titre_menu .favoris_menu:hover .heart-empty {
+  position: absolute;
+}
 
+/**
+                    i{
+        font-size: 1.5em;
+        &:hover{
+            background-clip: text;
+            background: linear-gradient($cl-secondaire 0%, $cl-primaire 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+    **/
 .contenu_global_menu {
   border-radius: 40px 40px 0px 0px;
   display: flex;

@@ -70,3 +70,12 @@
         opacity: 1; 
     }
 }
+
+@keyframes heartAnim{
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
