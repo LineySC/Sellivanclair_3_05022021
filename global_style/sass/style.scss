@@ -69,8 +69,6 @@ img{
             transform: rotate(0deg);
             animation: loaderAnim 3s cubic-bezier(0.45 ,0 ,0 ,1.05);
             background: linear-gradient(to left, $cl-secondaire, $cl-tertiaire);
-            border-top: 10px;
-
             .loader_empty{
                 transform-origin: center;
                 height: 100%;
@@ -82,9 +80,7 @@ img{
                     opacity: 0;
                     animation: animOpacityImg 3s  3s  forwards;
                     animation-delay: 2s;
-                    animation-fill-mode: forwards;
                     transform: rotateZ(0deg);
-
                 }
             }
             .loader_bar_2{
@@ -97,7 +93,6 @@ img{
                 background: white;
             }
         }
-
     }
 
 /*************** Mobile ***************/
@@ -110,8 +105,11 @@ img{
             padding: 10px 0 10px 0;
             img{
                 width: 15%;
-                @media all and (max-width:1024px) {
+                @media all and (max-width:768px) {
                     width: 45%;
+                }
+                @media all and (min-width: 768px) and (max-width: 1024px) {
+                    width: 20%;
                 }
             }
             .titre{
@@ -120,8 +118,7 @@ img{
                 align-items: center;
                 padding: 10px 0px 10px 0px
             }
-            .back
-            {
+            .back{
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
@@ -136,6 +133,9 @@ img{
                     margin: 0% 35% 0% 5%;
                     @media all and (max-width:1024px){
                         margin: 0 20% 0 5%;
+                    }
+                    @media all and (min-width: 768px) and (max-width: 1024px) {
+                       margin: 0 30% 0 5%;;
                     }
                     li{
                         color: $cl-box-trois;
@@ -156,19 +156,31 @@ img{
             display: flex;
             flex-direction: row;
             justify-content: center;
-            align-items: center;
-            padding: 5px 0 5px 0;
+            padding: 20px 0 20px 0;
             box-shadow: inset 0px 5px 5px 0px #c0c0c0;
             i{
                 margin-right: 15px;
             }
+            input{
+                border: none;
+                background-color: $cl-box-un;
+                width: 120px;
+                &::placeholder{
+                    color: black;
+                    font-size: 1.2em;
+                }
+                &:focus{
+                    outline: none;
+                }
+            }
+            
         }
         .explorez{
             background-color: $cl-box-deux;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-bottom: 40px;
+            padding: 10px 0 60px 0 ;
             h1{
                 padding: 20px 50px 0 50px;
                 margin: 0 auto;
@@ -178,6 +190,7 @@ img{
             p{
                 text-align: center;
                 padding: 0 20px 10px 20px;
+                color: #3a3a3a;
             }
         }
 
@@ -192,12 +205,16 @@ img{
                     font-weight: 600;
                     display: flex;
                     justify-content: center;
+                    @media all and (max-width: 1024px) {
+                        justify-content: flex-start;
+                    }
                 }
                 ol{
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
+
                     li{
                         background-color: $cl-box-deux;
                         padding: 30px 20px 30px 20px;
@@ -209,9 +226,12 @@ img{
                         @media all and (max-width: 1024px) {
                             width: 80%;
                         }
+                        p{
+                            display: inline;
+                        }
                         i{
                             padding: 0 20px 0 20px;
-                            color: $cl-box-trois;
+                            color: #797979;
                         }
                         &:hover{
                             background-color: rgba($color: #9356DC, $alpha: 0.2);
@@ -248,12 +268,11 @@ img{
                     justify-content: space-evenly;
                     flex-wrap: wrap;
                     align-content: center;
-
-                    padding: 40px 15px 0 15px;
+                    padding: 40px 15px 20px 15px;
                     @media all and (max-width:1024px){
                         display: flex;
                         flex-direction: column;
-                        padding: 40px 15px 0 15px;
+                        padding: 40px 15px 50px 15px;
                     }
                     h2{
                         width: 100%;
@@ -317,33 +336,39 @@ img{
                         p{
                             padding: 0 0 5px 15px;
                             font-size: 1.2em;
-
                             margin-top: 0;
                         }
                         .favoris{
+                            position: absolute;
+                            right: 30px;
+                            bottom: 35px;
+                            font-size: 1.4em;
+                            transition: all 0.5s ease;
                             .heart-full{
                                 z-index: 1;
                                 display: none;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
                             }
                             .heart-empty{
                                 position: relative;
                                 z-index: 2;
                             }
-                            position: absolute;
-                            right: 30px;
-                            bottom: 35px;
-                            font-size: 1.4em;
                             &:hover{
+                                position: absolute;
                                 background: linear-gradient($cl-secondaire 0%, $cl-primaire 80%);
                                 -webkit-background-clip: text;
                                 -webkit-text-fill-color: transparent;
+                                transition: all 0.5s ease;
                                 .heart-full{
-                                    display: contents;
+                                    display: inline-block;
+                                    animation: animHeart 0.5s ease-in-out;
+                                    transform-origin: center;
+
                                 }
                                 .heart-empty{
                                     position: absolute;
                                 }
-                                position: absolute;
                             }
                         }
                     }
@@ -359,11 +384,13 @@ img{
                     top: 7%;
                     @media screen and (max-width: 1024px) {
                         width: 100%;
-
                     }
                     img{
                         width: 1920px;
                         @media all and (max-width: 1024px) {
+                            width: 100%;
+                        }
+                        @media all and (min-width: 1920px) {
                             width: 100%;
                         }
                     }
@@ -378,24 +405,31 @@ img{
                         font-size: 1.5em;
                     }
                     .favoris_menu{
+                        position: absolute;
+                        font-size: 1.5em;
+                        right: 10%;
+                        transition: all 0.5s ease-in-out;
                         .heart-full{
                             z-index: 1;
                             display: none;
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            transform-origin: center;
                         }
                         .heart-empty{
-
+                            position: relative;
                             z-index: 2;
                         }
-                        position: relative;
-                        font-size: 1.5em;
-
                         &:hover{
+                            position: absolute;
                             background: linear-gradient($cl-secondaire 0%, $cl-primaire 80%);
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;
+                            transition: all 0.5s ease-in-out;
                             .heart-full{
-                                display: contents;
+                                display: inline-block;
                                 transform-origin: center;
+                                animation: animHeart 0.5s ease-in-out;
                             }
                             .heart-empty{
                                 position: absolute;
@@ -403,18 +437,6 @@ img{
                         }
                     }
                 }
-
-                /**
-                                    i{
-                        font-size: 1.5em;
-                        &:hover{
-                            background-clip: text;
-                            background: linear-gradient($cl-secondaire 0%, $cl-primaire 80%);
-                            -webkit-background-clip: text;
-                            -webkit-text-fill-color: transparent;
-                        }
-                    }
-                    **/
 
                 .contenu_global_menu{
                     border-radius: 40px 40px 0px 0px;
@@ -538,7 +560,6 @@ img{
                             i{
                                 display: flex;
                                 font-size: 1.5em;
-
                                 animation: animCheckRotate 0.7s ease-in-out;
                             }
                         }
@@ -546,13 +567,9 @@ img{
 
                 }
 
-
                 .anim{
                     display: flex;
                     align-items: center;
-                }
-
-                .anim{
                     animation: fadein 3s linear;
                     animation-fill-mode: forwards;
                     animation-duration: 0ms;

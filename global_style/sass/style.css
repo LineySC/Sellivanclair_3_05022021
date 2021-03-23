@@ -11,40 +11,6 @@
     opacity: 0;
   }
 }
-@keyframes boxCheck {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 20%;
-  }
-}
-@keyframes checkChoixAnim {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100px;
-  }
-}
-@keyframes fadein {
-  from {
-    opacity: 0;
-    margin-bottom: 0px;
-  }
-  to {
-    opacity: 1;
-    margin-bottom: 20px;
-  }
-}
-@keyframes animCheckRotate {
-  from {
-    transform: rotateZ(0deg);
-  }
-  to {
-    transform: rotateZ(360deg);
-  }
-}
 @keyframes loaderAnim {
   from {
     transform: rotateZ(0);
@@ -61,12 +27,40 @@
     opacity: 1;
   }
 }
-@keyframes heartAnim {
+@keyframes fadein {
+  from {
+    opacity: 0;
+    margin-bottom: 0px;
+  }
+  to {
+    opacity: 1;
+    margin-bottom: 20px;
+  }
+}
+@keyframes checkChoixAnim {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100px;
+  }
+}
+@keyframes animCheckRotate {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes animHeart {
   from {
     transform: scale(0);
+    -webkit-transform: scale(0);
   }
   to {
     transform: scale(1);
+    -webkit-transform: scale(1);
   }
 }
 * {
@@ -135,7 +129,6 @@ img {
   transform: rotate(0deg);
   animation: loaderAnim 3s cubic-bezier(0.45, 0, 0, 1.05);
   background: linear-gradient(to left, #FF79DA, #99E2D0);
-  border-top: 10px;
 }
 .loader .loader_bar .loader_empty {
   transform-origin: center;
@@ -149,7 +142,6 @@ img {
   opacity: 0;
   animation: animOpacityImg 3s 3s forwards;
   animation-delay: 2s;
-  animation-fill-mode: forwards;
   transform: rotateZ(0deg);
 }
 .loader .loader_bar .loader_bar_2 {
@@ -172,9 +164,14 @@ header {
 header img {
   width: 15%;
 }
-@media all and (max-width: 1024px) {
+@media all and (max-width: 768px) {
   header img {
     width: 45%;
+  }
+}
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  header img {
+    width: 20%;
   }
 }
 header .titre {
@@ -203,6 +200,11 @@ header .back a {
     margin: 0 20% 0 5%;
   }
 }
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  header .back a {
+    margin: 0 30% 0 5%;
+  }
+}
 header .back a li {
   color: #353535;
   font-size: 1.5em;
@@ -218,12 +220,23 @@ header .back a i {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  padding: 5px 0 5px 0;
+  padding: 20px 0 20px 0;
   box-shadow: inset 0px 5px 5px 0px #c0c0c0;
 }
 .gps i {
   margin-right: 15px;
+}
+.gps input {
+  border: none;
+  background-color: #EAEAEA;
+  width: 120px;
+}
+.gps input::placeholder {
+  color: black;
+  font-size: 1.2em;
+}
+.gps input:focus {
+  outline: none;
 }
 
 .explorez {
@@ -231,7 +244,7 @@ header .back a i {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 40px;
+  padding: 10px 0 60px 0;
 }
 .explorez h1 {
   padding: 20px 50px 0 50px;
@@ -242,6 +255,7 @@ header .back a i {
 .explorez p {
   text-align: center;
   padding: 0 20px 10px 20px;
+  color: #3a3a3a;
 }
 
 /***** Fonctionnement *****/
@@ -255,6 +269,11 @@ header .back a i {
   font-weight: 600;
   display: flex;
   justify-content: center;
+}
+@media all and (max-width: 1024px) {
+  .fonctionnement h2 {
+    justify-content: flex-start;
+  }
 }
 .fonctionnement ol {
   display: flex;
@@ -276,9 +295,12 @@ header .back a i {
     width: 80%;
   }
 }
+.fonctionnement ol li p {
+  display: inline;
+}
 .fonctionnement ol li i {
   padding: 0 20px 0 20px;
-  color: #353535;
+  color: #797979;
 }
 .fonctionnement ol li:hover {
   background-color: rgba(147, 86, 220, 0.2);
@@ -309,13 +331,13 @@ header .back a i {
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-content: center;
-  padding: 40px 15px 0 15px;
+  padding: 40px 15px 20px 15px;
 }
 @media all and (max-width: 1024px) {
   #restaurants {
     display: flex;
     flex-direction: column;
-    padding: 40px 15px 0 15px;
+    padding: 40px 15px 50px 15px;
   }
 }
 #restaurants h2 {
@@ -391,23 +413,29 @@ header .back a i {
   right: 30px;
   bottom: 35px;
   font-size: 1.4em;
+  transition: all 0.5s ease;
 }
 #restaurants .boite_restaurant .favoris .heart-full {
   z-index: 1;
   display: none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 #restaurants .boite_restaurant .favoris .heart-empty {
   position: relative;
   z-index: 2;
 }
 #restaurants .boite_restaurant .favoris:hover {
+  position: absolute;
   background: linear-gradient(#FF79DA 0%, #9356DC 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  position: absolute;
+  transition: all 0.5s ease;
 }
 #restaurants .boite_restaurant .favoris:hover .heart-full {
-  display: contents;
+  display: inline-block;
+  animation: animHeart 0.5s ease-in-out;
+  transform-origin: center;
 }
 #restaurants .boite_restaurant .favoris:hover .heart-empty {
   position: absolute;
@@ -437,6 +465,11 @@ header .back a i {
     width: 100%;
   }
 }
+@media all and (min-width: 1920px) {
+  .images_menu img {
+    width: 100%;
+  }
+}
 
 .titre_menu {
   display: flex;
@@ -449,40 +482,38 @@ header .back a i {
   font-size: 1.5em;
 }
 .titre_menu .favoris_menu {
-  position: relative;
+  position: absolute;
   font-size: 1.5em;
+  right: 10%;
+  transition: all 0.5s ease-in-out;
 }
 .titre_menu .favoris_menu .heart-full {
   z-index: 1;
   display: none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform-origin: center;
 }
 .titre_menu .favoris_menu .heart-empty {
+  position: relative;
   z-index: 2;
 }
 .titre_menu .favoris_menu:hover {
+  position: absolute;
   background: linear-gradient(#FF79DA 0%, #9356DC 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: all 0.5s ease-in-out;
 }
 .titre_menu .favoris_menu:hover .heart-full {
-  display: contents;
+  display: inline-block;
   transform-origin: center;
+  animation: animHeart 0.5s ease-in-out;
 }
 .titre_menu .favoris_menu:hover .heart-empty {
   position: absolute;
 }
 
-/**
-                    i{
-        font-size: 1.5em;
-        &:hover{
-            background-clip: text;
-            background: linear-gradient($cl-secondaire 0%, $cl-primaire 80%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    }
-    **/
 .contenu_global_menu {
   border-radius: 40px 40px 0px 0px;
   display: flex;
@@ -616,9 +647,6 @@ header .back a i {
 .anim {
   display: flex;
   align-items: center;
-}
-
-.anim {
   animation: fadein 3s linear;
   animation-fill-mode: forwards;
   animation-duration: 0ms;
