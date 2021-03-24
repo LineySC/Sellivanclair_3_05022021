@@ -347,6 +347,7 @@ img{
                             .heart-full{
                                 z-index: 1;
                                 display: none;
+                                background: linear-gradient($cl-secondaire 0%, $cl-primaire 80%);
                                 -webkit-background-clip: text;
                                 -webkit-text-fill-color: transparent;
                             }
@@ -356,9 +357,7 @@ img{
                             }
                             &:hover{
                                 position: absolute;
-                                background: linear-gradient($cl-secondaire 0%, $cl-primaire 80%);
-                                -webkit-background-clip: text;
-                                -webkit-text-fill-color: transparent;
+
                                 transition: all 0.5s ease;
                                 .heart-full{
                                     display: inline-block;
@@ -368,6 +367,7 @@ img{
                                 }
                                 .heart-empty{
                                     position: absolute;
+                                    display: none;
                                 }
                             }
                         }
@@ -412,6 +412,7 @@ img{
                         .heart-full{
                             z-index: 1;
                             display: none;
+                            background: linear-gradient($cl-secondaire 0%, $cl-primaire 80%);
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;
                             transform-origin: center;
@@ -422,9 +423,7 @@ img{
                         }
                         &:hover{
                             position: absolute;
-                            background: linear-gradient($cl-secondaire 0%, $cl-primaire 80%);
-                            -webkit-background-clip: text;
-                            -webkit-text-fill-color: transparent;
+
                             transition: all 0.5s ease-in-out;
                             .heart-full{
                                 display: inline-block;
@@ -433,6 +432,7 @@ img{
                             }
                             .heart-empty{
                                 position: absolute;
+                                display: none;
                             }
                         }
                     }
